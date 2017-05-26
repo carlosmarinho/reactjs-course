@@ -1,5 +1,27 @@
 $ = jQuery = require('jquery');
 
-var App = console.log('Hello word from browserfy');
+var React = require('react');
+var Home = require('./components/homePage');
+var About = require('./components/about/aboutPage');
 
-module.exports = App;
+var App = React.createClass({
+	render: function() {
+		var Child;
+
+		switch(this.props.route){
+			case: "about": Child = About; break;
+			default: Child = Home;
+		};
+
+		return(
+			<div>
+				<child/>
+			</div>
+		);
+	}
+})
+
+win.addEventListener('hashchange', render);
+render();
+
+React.render(<Home />, document.getElementById('app'));
